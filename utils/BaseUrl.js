@@ -1,4 +1,4 @@
-const ApiUrl = "http://localhost:4000"
+const ApiUrl = "https://audio-transcribe.ab-ideasideas.repl.co"
 export {
   ApiUrl
 }
