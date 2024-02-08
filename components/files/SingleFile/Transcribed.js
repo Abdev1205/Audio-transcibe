@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FcAudioFile } from "react-icons/fc";
 import { fileImage, bookmarkImage } from "../../../public/assets.js";
 import { RxClipboardCopy } from "react-icons/rx";
@@ -7,6 +7,7 @@ import { ApiUrl } from '@/utils/BaseUrl.js';
 
 const Transcribed = ({ fileData }) => {
   const [isCopied, setIsCopied] = useState(false);
+  const [audioPath, setAudioPath] = useState(`${ApiUrl}/${fileData.filePath}`)
 
   const copyToClipboard = () => {
     // Create a text area element and set its value
@@ -24,11 +25,17 @@ const Transcribed = ({ fileData }) => {
     }, 2000);
   };
 
+  useEffect(() => {
+    setAudioPath(`${ApiUrl}/${fileData.filePath}`)
+  }, [])
+
+
+
   return (
     <div className=' flex flex-col   p-[1rem] w-[100%] border-[1px] border-[#E4E7EC] bg-white cursor-pointer rounded-lg'>
       <div className='flex w-[100%] justify-between items-center'>
-        <h1 className='text-[#344054] capitalize font-inter font-[600] text-[1.1rem]'>Transcribed Value</h1>
-        <audio controls className="ml-[-1rem] w-[60%] bg-[#E0EDFF] rounded-3xl ">
+        <h1 onClick={() => alert(`${ApiUrl}/${fileData.filePath}`)} className='text-[#344054] capitalize font-inter font-[600] text-[1.1rem]'>Transcribed Value</h1>
+        <audio controls className="ml-[-1rem] w-[60%]  ">
           <source src={`${ApiUrl}/${fileData.filePath}`} type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>

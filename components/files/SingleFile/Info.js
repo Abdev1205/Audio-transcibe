@@ -31,15 +31,16 @@ const Info = ({ fileData }) => {
 
           <div className={` ${fileData.saved == "1" ? "hidden " : "flex flex-col "} items-center `} >
 
-            <div className=' flex justify-center items-center  w-[2.2rem]  h-[2.2rem] border-[1px] border-primary bg-primary rounded-full ' >
-              <TbCloudDownload className=" text-white text-[1.4rem]  " />
-            </div>
+
             <a
               href={`${ApiUrl}/${fileData.filePath}`}  // Provide the URL of the MP3 file
               download
               target='_blank'
-              className='text-primary font-inter font-[600] text-[.8rem]'
+              className='text-primary flex flex-col justify-center items-center font-inter font-[600] text-[.8rem]'
             >
+              <div className=' flex justify-center items-center  w-[2.2rem]  h-[2.2rem] border-[1px] border-primary bg-primary rounded-full ' >
+                <TbCloudDownload className=" text-white text-[1.4rem]  " />
+              </div>
               Download
             </a>
           </div>

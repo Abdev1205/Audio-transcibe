@@ -1,4 +1,4 @@
-const ApiUrl = "https://audio-transcribe.ab-ideasideas.repl.co"
+const ApiUrl = "https://saydata-backend.onrender.com"
 export {
   ApiUrl
 }
